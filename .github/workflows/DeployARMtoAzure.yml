@@ -13,7 +13,7 @@ on:
 jobs:
 
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     
     - name: Login via Az module
@@ -30,6 +30,6 @@ jobs:
       with:
         inlineScript: |
           Set-AzContext -SubscriptionId ${{secrets.SUBSCRIPTION_ID}};
-          $command = “.\DeployARMtoAzure.ps1";
+          $command = “./DeployARMtoAzure.ps1";
           Invoke-Expression $command;
         azPSVersion: '3.1.0'
