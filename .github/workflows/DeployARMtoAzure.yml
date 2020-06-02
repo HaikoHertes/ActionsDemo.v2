@@ -30,6 +30,6 @@ jobs:
       with:
         inlineScript: |
           Get-ChildItem;
-          Set-AzContext -SubscriptionId ${{secrets.AZURE_CREDENTIALS}};
+          
           Get-AzResourceGroup;
         azPSVersion: '3.1.0'
