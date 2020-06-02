@@ -33,3 +33,4 @@ jobs:
           $command = “./DeployARMtoAzure.ps1";
           Invoke-Expression $command;
         azPSVersion: '4.1.0'
+        #AzPS 4.1.0 is needed to set Tags on the Deployments; AzPS 4.1.0 needs Ubuntu-20.04

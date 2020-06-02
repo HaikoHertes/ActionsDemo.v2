@@ -1,4 +1,4 @@
-﻿$templates = Get-ChildItem -Path "arm\" -Filter "template.json" -File -Recurse 
+﻿$templates = Get-ChildItem -Path "arm\" -Filter "*.json" -File -Recurse | Where Name -notlike "*parameters.json"
 ForEach($template in $templates)
 {   
     # Create RG if not allready existing
@@ -33,8 +33,10 @@ ForEach($template in $templates)
         Write-Host "Location should be $Location"
         
     }
-    New-AzResourceGroupDeployment `            -ResourceGroupName $RGName `            -TemplateFile "$($template.DirectoryName)\template.json" `            -TemplateParameterFile "$($template.DirectoryName)\parameters.json" `
+    New-AzResourceGroupDeployment `            -ResourceGroupName $RGName `            -TemplateFile $template.FullName `            -TemplateParameterFile "$($template.DirectoryName)\$($template.BaseName).parameters.json" `
             -Tag $tags
 
     
 }
+
+$templates.BaseName
