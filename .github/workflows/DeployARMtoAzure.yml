@@ -1,15 +1,9 @@
-# This is a basic workflow to help you get started with Actions
-
 name: DeployARMtoAzure
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     branches: [ master ]
 
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
   deploy:
@@ -25,7 +19,7 @@ jobs:
     - name: Checkout Source Code
       uses: actions/checkout@v2
         
-    - name: Run Azure PowerShell script
+    - name: Run Azure PowerShell script DeployARMtoAzure.ps1
       uses: azure/powershell@v1
       with:
         inlineScript: |
