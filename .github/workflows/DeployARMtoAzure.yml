@@ -32,4 +32,4 @@ jobs:
           Set-AzContext -SubscriptionId ${{secrets.SUBSCRIPTION_ID}};
           $command = “./DeployARMtoAzure.ps1";
           Invoke-Expression $command;
-        azPSVersion: '3.1.0'
+        azPSVersion: '4.1.0'
