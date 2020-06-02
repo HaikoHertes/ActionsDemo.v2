@@ -1,1 +1,3 @@
 # ActionsDemo.v2
+
+This demo is to show how to deploy multiple ARM templates to Azure using GitHub Actions and PowerShell...
