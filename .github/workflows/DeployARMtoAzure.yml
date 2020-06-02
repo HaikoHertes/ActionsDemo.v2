@@ -12,8 +12,8 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
-  build:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
     
     - name: Login via Az module
@@ -30,4 +30,6 @@ jobs:
       with:
         inlineScript: |
           Get-ChildItem | fl *
+          Set-AzContext -SubscriptionId ${{secrets.AZURE_CREDENTIALS}}
+          Get-AzResourceGroup
         #azPSVersion: '3.1.0'
